@@ -1,0 +1,36 @@
+//
+//  PresentationTimer+PrefixHeader.pch
+//  PresentationTimer
+//
+//  Created by Ehssan Hoorvash on 28/12/15.
+//  Copyright © 2015 E. Hoorvash. All rights reserved.
+//
+
+#ifndef PresentationTimer_PrefixHeader_pch
+#define PresentationTimer_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// DLog will output like NSLog only when the DEBUG variable is set
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+// ALog will always output like NSLog
+
+#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+// UILog will show the UIAlertView only when the DEBUG variable is set
+
+#ifdef DEBUG
+#   define UILog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#else
+#   define ULog(...)
+#endif
+
+
+#endif /* PresentationTimer_PrefixHeader_pch */
