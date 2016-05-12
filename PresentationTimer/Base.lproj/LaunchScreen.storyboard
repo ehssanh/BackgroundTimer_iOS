@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,12 +19,63 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="tHX-We-Mlv">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tHX-We-Mlv" secondAttribute="height" multiplier="273:263" id="eRH-V5-iMn"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eRH-V5-iMn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="eRH-V5-iMn"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tHX-We-Mlv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AUg-Z5-H52">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-32.5"/>
+                            </constraint>
+                            <constraint firstItem="tHX-We-Mlv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="44" id="cfb-ao-Apd"/>
+                            <constraint firstItem="tHX-We-Mlv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="j11-JW-3lT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tHX-We-Mlv" secondAttribute="trailing" constant="43" id="ubp-ZL-kHe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="tHX-We-Mlv"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="AUg-Z5-H52"/>
+                                <exclude reference="cfb-ao-Apd"/>
+                                <exclude reference="j11-JW-3lT"/>
+                                <exclude reference="ubp-ZL-kHe"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="tHX-We-Mlv"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="AUg-Z5-H52"/>
+                                <include reference="cfb-ao-Apd"/>
+                                <include reference="j11-JW-3lT"/>
+                                <include reference="ubp-ZL-kHe"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="897" y="390"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="clock.png" width="304" height="304"/>
+    </resources>
 </document>

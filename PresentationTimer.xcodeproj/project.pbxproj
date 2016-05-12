@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		596C5D951CE26328006CABA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596C5D931CE26328006CABA8 /* Interface.storyboard */; };
+		596C5D971CE26328006CABA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596C5D961CE26328006CABA8 /* Assets.xcassets */; };
+		596C5D9E1CE26328006CABA8 /* PresentationTimerWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 596C5D9D1CE26328006CABA8 /* PresentationTimerWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		596C5DA51CE26328006CABA8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C5DA41CE26328006CABA8 /* InterfaceController.swift */; };
+		596C5DA71CE26328006CABA8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C5DA61CE26328006CABA8 /* ExtensionDelegate.swift */; };
+		596C5DA91CE26328006CABA8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C5DA81CE26328006CABA8 /* NotificationController.swift */; };
+		596C5DAB1CE26328006CABA8 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C5DAA1CE26328006CABA8 /* GlanceController.swift */; };
+		596C5DAD1CE26328006CABA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596C5DAC1CE26328006CABA8 /* Assets.xcassets */; };
+		596C5DB11CE26328006CABA8 /* PresentationTimerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 596C5D911CE26328006CABA8 /* PresentationTimerWatch.app */; };
+		596C5DBB1CE2734C006CABA8 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596C5DBA1CE2734C006CABA8 /* clock@2x.png */; };
+		59C300CF1CE4C9E400C0C57C /* WatchConnectivityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C300CE1CE4C9E400C0C57C /* WatchConnectivityHelper.swift */; };
 		59F6165C1C313C2C001D29A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6165B1C313C2C001D29A3 /* main.m */; };
 		59F6165F1C313C2C001D29A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6165E1C313C2C001D29A3 /* AppDelegate.m */; };
 		59F616651C313C2C001D29A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F616631C313C2C001D29A3 /* Main.storyboard */; };
@@ -16,13 +27,23 @@
 		59F616801C313C2C001D29A3 /* PresentationTimerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6167F1C313C2C001D29A3 /* PresentationTimerUITests.m */; };
 		59F616931C313F95001D29A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F616921C313F95001D29A3 /* ViewController.swift */; };
 		59F616971C313FD2001D29A3 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F616961C313FD2001D29A3 /* KDCircularProgress.swift */; };
-		59F6169F1C3184BF001D29A3 /* TimerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6169D1C3184BF001D29A3 /* TimerDetailsViewController.m */; };
-		59F616A01C3184BF001D29A3 /* TimerDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F6169E1C3184BF001D29A3 /* TimerDetailsViewController.xib */; };
-		59F616A41C3184E0001D29A3 /* MinuteSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F616A21C3184E0001D29A3 /* MinuteSliderViewController.m */; };
-		59F616A51C3184E0001D29A3 /* MinuteSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F616A31C3184E0001D29A3 /* MinuteSliderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		596C5D9F1CE26328006CABA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59F6164F1C313C2C001D29A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 596C5D9C1CE26328006CABA8;
+			remoteInfo = "PresentationTimerWatch Extension";
+		};
+		596C5DAF1CE26328006CABA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59F6164F1C313C2C001D29A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 596C5D901CE26328006CABA8;
+			remoteInfo = PresentationTimerWatch;
+		};
 		59F616711C313C2C001D29A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59F6164F1C313C2C001D29A3 /* Project object */;
@@ -39,7 +60,48 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		596C5DB71CE26328006CABA8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				596C5D9E1CE26328006CABA8 /* PresentationTimerWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596C5DB91CE26328006CABA8 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				596C5DB11CE26328006CABA8 /* PresentationTimerWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		596C5D911CE26328006CABA8 /* PresentationTimerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresentationTimerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		596C5D941CE26328006CABA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		596C5D961CE26328006CABA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		596C5D981CE26328006CABA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		596C5D9D1CE26328006CABA8 /* PresentationTimerWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PresentationTimerWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		596C5DA31CE26328006CABA8 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		596C5DA41CE26328006CABA8 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		596C5DA61CE26328006CABA8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		596C5DA81CE26328006CABA8 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		596C5DAA1CE26328006CABA8 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		596C5DAC1CE26328006CABA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		596C5DAE1CE26328006CABA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		596C5DBA1CE2734C006CABA8 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		59C300CC1CE4C93F00C0C57C /* PresentationTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PresentationTimer.entitlements; sourceTree = "<group>"; };
+		59C300CD1CE4C95F00C0C57C /* PresentationTimerWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PresentationTimerWatch.entitlements; sourceTree = "<group>"; };
+		59C300CE1CE4C9E400C0C57C /* WatchConnectivityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectivityHelper.swift; sourceTree = "<group>"; };
 		59F616571C313C2C001D29A3 /* PresentationTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresentationTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F6165B1C313C2C001D29A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		59F6165D1C313C2C001D29A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,15 +120,16 @@
 		59F616921C313F95001D29A3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59F616961C313FD2001D29A3 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		59F6169A1C31626C001D29A3 /* PresentationTimer+PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PresentationTimer+PrefixHeader.pch"; sourceTree = "<group>"; };
-		59F6169C1C3184BF001D29A3 /* TimerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerDetailsViewController.h; sourceTree = "<group>"; };
-		59F6169D1C3184BF001D29A3 /* TimerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerDetailsViewController.m; sourceTree = "<group>"; };
-		59F6169E1C3184BF001D29A3 /* TimerDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerDetailsViewController.xib; sourceTree = "<group>"; };
-		59F616A11C3184E0001D29A3 /* MinuteSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinuteSliderViewController.h; sourceTree = "<group>"; };
-		59F616A21C3184E0001D29A3 /* MinuteSliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinuteSliderViewController.m; sourceTree = "<group>"; };
-		59F616A31C3184E0001D29A3 /* MinuteSliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinuteSliderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		596C5D9A1CE26328006CABA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59F616541C313C2C001D29A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,12 +154,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		596C5D921CE26328006CABA8 /* PresentationTimerWatch */ = {
+			isa = PBXGroup;
+			children = (
+				59C300CD1CE4C95F00C0C57C /* PresentationTimerWatch.entitlements */,
+				596C5D931CE26328006CABA8 /* Interface.storyboard */,
+				596C5D961CE26328006CABA8 /* Assets.xcassets */,
+				596C5D981CE26328006CABA8 /* Info.plist */,
+			);
+			path = PresentationTimerWatch;
+			sourceTree = "<group>";
+		};
+		596C5DA11CE26328006CABA8 /* PresentationTimerWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				596C5DA41CE26328006CABA8 /* InterfaceController.swift */,
+				596C5DA61CE26328006CABA8 /* ExtensionDelegate.swift */,
+				596C5DA81CE26328006CABA8 /* NotificationController.swift */,
+				596C5DAA1CE26328006CABA8 /* GlanceController.swift */,
+				596C5DAC1CE26328006CABA8 /* Assets.xcassets */,
+				596C5DAE1CE26328006CABA8 /* Info.plist */,
+				596C5DA21CE26328006CABA8 /* Supporting Files */,
+			);
+			path = "PresentationTimerWatch Extension";
+			sourceTree = "<group>";
+		};
+		596C5DA21CE26328006CABA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				596C5DA31CE26328006CABA8 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		59F6164E1C313C2C001D29A3 = {
 			isa = PBXGroup;
 			children = (
 				59F616591C313C2C001D29A3 /* PresentationTimer */,
 				59F616731C313C2C001D29A3 /* PresentationTimerTests */,
 				59F6167E1C313C2C001D29A3 /* PresentationTimerUITests */,
+				596C5D921CE26328006CABA8 /* PresentationTimerWatch */,
+				596C5DA11CE26328006CABA8 /* PresentationTimerWatch Extension */,
 				59F616581C313C2C001D29A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +205,8 @@
 				59F616571C313C2C001D29A3 /* PresentationTimer.app */,
 				59F616701C313C2C001D29A3 /* PresentationTimerTests.xctest */,
 				59F6167B1C313C2C001D29A3 /* PresentationTimerUITests.xctest */,
+				596C5D911CE26328006CABA8 /* PresentationTimerWatch.app */,
+				596C5D9D1CE26328006CABA8 /* PresentationTimerWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,9 +214,9 @@
 		59F616591C313C2C001D29A3 /* PresentationTimer */ = {
 			isa = PBXGroup;
 			children = (
+				59C300CC1CE4C93F00C0C57C /* PresentationTimer.entitlements */,
 				59F616991C3149B3001D29A3 /* Monetization */,
 				59F616981C3149A5001D29A3 /* Progress */,
-				59F6169B1C31845F001D29A3 /* Views */,
 				59F6165D1C313C2C001D29A3 /* AppDelegate.h */,
 				59F6165E1C313C2C001D29A3 /* AppDelegate.m */,
 				59F616921C313F95001D29A3 /* ViewController.swift */,
@@ -133,6 +233,7 @@
 		59F6165A1C313C2C001D29A3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				596C5DBA1CE2734C006CABA8 /* clock@2x.png */,
 				59F6169A1C31626C001D29A3 /* PresentationTimer+PrefixHeader.pch */,
 				59F6165B1C313C2C001D29A3 /* main.m */,
 			);
@@ -161,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				59F616961C313FD2001D29A3 /* KDCircularProgress.swift */,
+				59C300CE1CE4C9E400C0C57C /* WatchConnectivityHelper.swift */,
 			);
 			name = Progress;
 			sourceTree = "<group>";
@@ -172,22 +274,43 @@
 			name = Monetization;
 			sourceTree = "<group>";
 		};
-		59F6169B1C31845F001D29A3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				59F6169C1C3184BF001D29A3 /* TimerDetailsViewController.h */,
-				59F6169D1C3184BF001D29A3 /* TimerDetailsViewController.m */,
-				59F6169E1C3184BF001D29A3 /* TimerDetailsViewController.xib */,
-				59F616A11C3184E0001D29A3 /* MinuteSliderViewController.h */,
-				59F616A21C3184E0001D29A3 /* MinuteSliderViewController.m */,
-				59F616A31C3184E0001D29A3 /* MinuteSliderViewController.xib */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		596C5D901CE26328006CABA8 /* PresentationTimerWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596C5DB81CE26328006CABA8 /* Build configuration list for PBXNativeTarget "PresentationTimerWatch" */;
+			buildPhases = (
+				596C5D8F1CE26328006CABA8 /* Resources */,
+				596C5DB71CE26328006CABA8 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				596C5DA01CE26328006CABA8 /* PBXTargetDependency */,
+			);
+			name = PresentationTimerWatch;
+			productName = PresentationTimerWatch;
+			productReference = 596C5D911CE26328006CABA8 /* PresentationTimerWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		596C5D9C1CE26328006CABA8 /* PresentationTimerWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596C5DB61CE26328006CABA8 /* Build configuration list for PBXNativeTarget "PresentationTimerWatch Extension" */;
+			buildPhases = (
+				596C5D991CE26328006CABA8 /* Sources */,
+				596C5D9A1CE26328006CABA8 /* Frameworks */,
+				596C5D9B1CE26328006CABA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PresentationTimerWatch Extension";
+			productName = "PresentationTimerWatch Extension";
+			productReference = 596C5D9D1CE26328006CABA8 /* PresentationTimerWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		59F616561C313C2C001D29A3 /* PresentationTimer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59F616841C313C2C001D29A3 /* Build configuration list for PBXNativeTarget "PresentationTimer" */;
@@ -195,10 +318,12 @@
 				59F616531C313C2C001D29A3 /* Sources */,
 				59F616541C313C2C001D29A3 /* Frameworks */,
 				59F616551C313C2C001D29A3 /* Resources */,
+				596C5DB91CE26328006CABA8 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				596C5DB01CE26328006CABA8 /* PBXTargetDependency */,
 			);
 			name = PresentationTimer;
 			productName = PresentationTimer;
@@ -248,11 +373,30 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "E. Hoorvash";
 				TargetAttributes = {
+					596C5D901CE26328006CABA8 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 7WS9686VPW;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					596C5D9C1CE26328006CABA8 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					59F616561C313C2C001D29A3 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7WS9686VPW;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					59F6166F1C313C2C001D29A3 = {
 						CreatedOnToolsVersion = 7.2;
@@ -280,18 +424,36 @@
 				59F616561C313C2C001D29A3 /* PresentationTimer */,
 				59F6166F1C313C2C001D29A3 /* PresentationTimerTests */,
 				59F6167A1C313C2C001D29A3 /* PresentationTimerUITests */,
+				596C5D901CE26328006CABA8 /* PresentationTimerWatch */,
+				596C5D9C1CE26328006CABA8 /* PresentationTimerWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		596C5D8F1CE26328006CABA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596C5D971CE26328006CABA8 /* Assets.xcassets in Resources */,
+				596C5D951CE26328006CABA8 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596C5D9B1CE26328006CABA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596C5DAD1CE26328006CABA8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59F616551C313C2C001D29A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				59F6166A1C313C2C001D29A3 /* LaunchScreen.storyboard in Resources */,
-				59F616A01C3184BF001D29A3 /* TimerDetailsViewController.xib in Resources */,
-				59F616A51C3184E0001D29A3 /* MinuteSliderViewController.xib in Resources */,
+				596C5DBB1CE2734C006CABA8 /* clock@2x.png in Resources */,
 				59F616671C313C2C001D29A3 /* Assets.xcassets in Resources */,
 				59F616651C313C2C001D29A3 /* Main.storyboard in Resources */,
 			);
@@ -314,16 +476,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		596C5D991CE26328006CABA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596C5DA91CE26328006CABA8 /* NotificationController.swift in Sources */,
+				596C5DA71CE26328006CABA8 /* ExtensionDelegate.swift in Sources */,
+				596C5DA51CE26328006CABA8 /* InterfaceController.swift in Sources */,
+				596C5DAB1CE26328006CABA8 /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		59F616531C313C2C001D29A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				59F616971C313FD2001D29A3 /* KDCircularProgress.swift in Sources */,
 				59F616931C313F95001D29A3 /* ViewController.swift in Sources */,
-				59F6169F1C3184BF001D29A3 /* TimerDetailsViewController.m in Sources */,
 				59F6165F1C313C2C001D29A3 /* AppDelegate.m in Sources */,
+				59C300CF1CE4C9E400C0C57C /* WatchConnectivityHelper.swift in Sources */,
 				59F6165C1C313C2C001D29A3 /* main.m in Sources */,
-				59F616A41C3184E0001D29A3 /* MinuteSliderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +518,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		596C5DA01CE26328006CABA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 596C5D9C1CE26328006CABA8 /* PresentationTimerWatch Extension */;
+			targetProxy = 596C5D9F1CE26328006CABA8 /* PBXContainerItemProxy */;
+		};
+		596C5DB01CE26328006CABA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 596C5D901CE26328006CABA8 /* PresentationTimerWatch */;
+			targetProxy = 596C5DAF1CE26328006CABA8 /* PBXContainerItemProxy */;
+		};
 		59F616721C313C2C001D29A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 59F616561C313C2C001D29A3 /* PresentationTimer */;
@@ -359,6 +541,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		596C5D931CE26328006CABA8 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				596C5D941CE26328006CABA8 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		59F616631C313C2C001D29A3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -378,6 +568,74 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		596C5DB21CE26328006CABA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = PresentationTimerWatch/PresentationTimerWatch.entitlements;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = PresentationTimerWatch_Extension;
+				INFOPLIST_FILE = PresentationTimerWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		596C5DB31CE26328006CABA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = PresentationTimerWatch/PresentationTimerWatch.entitlements;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = PresentationTimerWatch_Extension;
+				INFOPLIST_FILE = PresentationTimerWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		596C5DB41CE26328006CABA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = "PresentationTimerWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		596C5DB51CE26328006CABA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = "PresentationTimerWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 		59F616821C313C2C001D29A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -451,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -463,13 +721,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PresentationTimer/PresentationTimer.entitlements;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PresentationTimer+PrefixHeader.pch";
 				INFOPLIST_FILE = PresentationTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PresentationTimer/PresentationTimer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -478,12 +739,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PresentationTimer/PresentationTimer.entitlements;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PresentationTimer+PrefixHeader.pch";
 				INFOPLIST_FILE = PresentationTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PresentationTimer/PresentationTimer-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -538,6 +802,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		596C5DB61CE26328006CABA8 /* Build configuration list for PBXNativeTarget "PresentationTimerWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596C5DB41CE26328006CABA8 /* Debug */,
+				596C5DB51CE26328006CABA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		596C5DB81CE26328006CABA8 /* Build configuration list for PBXNativeTarget "PresentationTimerWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596C5DB21CE26328006CABA8 /* Debug */,
+				596C5DB31CE26328006CABA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		59F616521C313C2C001D29A3 /* Build configuration list for PBXProject "PresentationTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -554,6 +836,7 @@
 				59F616861C313C2C001D29A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59F616871C313C2C001D29A3 /* Build configuration list for PBXNativeTarget "PresentationTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +845,7 @@
 				59F616891C313C2C001D29A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59F6168A1C313C2C001D29A3 /* Build configuration list for PBXNativeTarget "PresentationTimerUITests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +854,7 @@
 				59F6168C1C313C2C001D29A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
