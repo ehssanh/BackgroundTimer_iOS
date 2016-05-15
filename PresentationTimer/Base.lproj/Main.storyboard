@@ -123,22 +123,22 @@
                                 <exclude reference="uPd-Iz-BOd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="TF9-bc-a6G"/>
-                                <exclude reference="muI-tp-E6h"/>
-                                <exclude reference="cVo-5i-w7O"/>
-                                <exclude reference="4uy-14-VBi"/>
-                                <exclude reference="Db8-TO-UiZ"/>
-                                <exclude reference="JBi-lb-6u1"/>
-                                <exclude reference="o9K-fz-dmO"/>
-                                <exclude reference="qau-fr-bN4"/>
-                                <exclude reference="rJF-Iu-Xwf"/>
-                                <exclude reference="uaq-7o-Nz5"/>
+                                <exclude reference="USV-Ks-T58"/>
                                 <exclude reference="1QJ-Ui-OJj"/>
                                 <exclude reference="6cE-v6-8JQ"/>
                                 <exclude reference="aqi-6l-CJn"/>
                                 <exclude reference="lMf-aP-0hb"/>
                                 <exclude reference="v2z-u9-H6j"/>
-                                <exclude reference="USV-Ks-T58"/>
+                                <exclude reference="cVo-5i-w7O"/>
+                                <exclude reference="rJF-Iu-Xwf"/>
+                                <exclude reference="uaq-7o-Nz5"/>
+                                <exclude reference="o9K-fz-dmO"/>
+                                <exclude reference="qau-fr-bN4"/>
+                                <exclude reference="4uy-14-VBi"/>
+                                <exclude reference="Db8-TO-UiZ"/>
+                                <exclude reference="JBi-lb-6u1"/>
+                                <exclude reference="TF9-bc-a6G"/>
+                                <exclude reference="muI-tp-E6h"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -151,22 +151,22 @@
                                 <include reference="uPd-Iz-BOd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="TF9-bc-a6G"/>
-                                <include reference="muI-tp-E6h"/>
-                                <include reference="cVo-5i-w7O"/>
-                                <include reference="4uy-14-VBi"/>
-                                <include reference="Db8-TO-UiZ"/>
-                                <include reference="JBi-lb-6u1"/>
-                                <include reference="o9K-fz-dmO"/>
-                                <include reference="qau-fr-bN4"/>
-                                <include reference="rJF-Iu-Xwf"/>
-                                <include reference="uaq-7o-Nz5"/>
+                                <include reference="USV-Ks-T58"/>
                                 <include reference="1QJ-Ui-OJj"/>
                                 <include reference="6cE-v6-8JQ"/>
                                 <include reference="aqi-6l-CJn"/>
                                 <include reference="lMf-aP-0hb"/>
                                 <include reference="v2z-u9-H6j"/>
-                                <include reference="USV-Ks-T58"/>
+                                <include reference="cVo-5i-w7O"/>
+                                <include reference="rJF-Iu-Xwf"/>
+                                <include reference="uaq-7o-Nz5"/>
+                                <include reference="o9K-fz-dmO"/>
+                                <include reference="qau-fr-bN4"/>
+                                <include reference="4uy-14-VBi"/>
+                                <include reference="Db8-TO-UiZ"/>
+                                <include reference="JBi-lb-6u1"/>
+                                <include reference="TF9-bc-a6G"/>
+                                <include reference="muI-tp-E6h"/>
                             </mask>
                         </variation>
                     </view>

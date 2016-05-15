@@ -220,6 +220,7 @@
 				59F6165D1C313C2C001D29A3 /* AppDelegate.h */,
 				59F6165E1C313C2C001D29A3 /* AppDelegate.m */,
 				59F616921C313F95001D29A3 /* ViewController.swift */,
+				59C300CE1CE4C9E400C0C57C /* WatchConnectivityHelper.swift */,
 				59F616631C313C2C001D29A3 /* Main.storyboard */,
 				59F616661C313C2C001D29A3 /* Assets.xcassets */,
 				59F616681C313C2C001D29A3 /* LaunchScreen.storyboard */,
@@ -262,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				59F616961C313FD2001D29A3 /* KDCircularProgress.swift */,
-				59C300CE1CE4C9E400C0C57C /* WatchConnectivityHelper.swift */,
 			);
 			name = Progress;
 			sourceTree = "<group>";

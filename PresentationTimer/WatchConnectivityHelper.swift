@@ -18,21 +18,21 @@ class WatchConnectivityHelper: NSObject, WCSessionDelegate
     func startWatchSession()
     {
         if (WCSession.isSupported()){
-            session = WCSession.defaultSession();
-            session.delegate = self;
-            session.activateSession();
+            self.session = WCSession.defaultSession();
+            self.session.delegate = self;
+            
+            self.session.activateSession()
         }
     }
     
     func sendMessage(message: [String : AnyObject])
     {
-        session.sendMessage(message, replyHandler: nil, errorHandler: nil);
+        if (WCSession.defaultSession().reachable){
+                self.session.sendMessage(message, replyHandler: nil, errorHandler: nil);
+        }
     }
     
-    func stopWatchSession()
-    {
-        session = nil;
-    }
+
     
     
     func saveData(data: String, key: String)
@@ -41,6 +41,24 @@ class WatchConnectivityHelper: NSObject, WCSessionDelegate
         userDefaults?.setObject(data, forKey:key);
     }
     
+    
+    //MARK: Connectivity to Watch
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject])
+    {
+        print("Message received from watch : ", message);
+    }
+    
+    func sessionWatchStateDidChange(session: WCSession) {
+        
+        print("iPhone received message");
+        
+        if #available(iOS 9.3, *) {
+            print("Session stste ", session.activationState)
+        } else {
+            // Fallback on earlier versions
+        };
+    }
     
 }
 

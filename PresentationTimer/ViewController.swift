@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+@available(iOS 9.0, *)
+class ViewController: UIViewController
+{
 
     var progress: KDCircularProgress!
     var button: UIButton!
@@ -28,6 +31,8 @@ class ViewController: UIViewController {
     
     let MINUTES_CONST_LABEL_TAG = 7788
     
+    var watchConnectivity : WatchConnectivityHelper!
+    var currentMin : NSInteger!
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var minutesLabel: UILabel!
@@ -38,7 +43,12 @@ class ViewController: UIViewController {
         super.viewDidLoad();
         
         self.setNeedsStatusBarAppearanceUpdate();
-
+  
+        //setup watch connectivity
+        watchConnectivity = WatchConnectivityHelper();
+        watchConnectivity.startWatchSession();
+        
+        
         // Setup the progress bar
         setupMainProgress();
         progress.animateFromAngle(progress.angle, toAngle: 360, duration: 0.6, completion: {
@@ -57,7 +67,10 @@ class ViewController: UIViewController {
         
         alarms = [Bool](count: 4, repeatedValue: true);
         setupAlarmIndicators();
+        
+        
     }
+    
     
 
     @IBAction func onPlusClick(sender: AnyObject) {
@@ -218,6 +231,7 @@ class ViewController: UIViewController {
     
         if (theButton.tag == START_TAG)
         {
+            
             theButton.setTitle("Stop", forState: .Normal);
             theButton.tag = STOP_TAG;
 
@@ -237,9 +251,13 @@ class ViewController: UIViewController {
             (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.grayColor(), forState: .Normal);
             minutesLabel.textColor = UIColor.grayColor();
             (self.view.viewWithTag(MINUTES_CONST_LABEL_TAG) as! UILabel).textColor = UIColor.grayColor();
+            
+            currentMin = NSInteger(slider.value);
+            watchConnectivity.sendMessage(["min" : currentMin]);
 
             
         } else if (theButton.tag == STOP_TAG){
+            
             
             theButton.setTitle("Start", forState: .Normal);
             theButton.tag = START_TAG;
@@ -290,8 +308,6 @@ class ViewController: UIViewController {
     {
         let currentTime = NSDate.timeIntervalSinceReferenceDate();
         var elapsedTime: NSTimeInterval = currentTime - startTime;
-        
-        
 
         let minutes = NSInteger(elapsedTime / 60.0);
 
@@ -304,6 +320,12 @@ class ViewController: UIViewController {
         let strMinutes = String(format: "%02d", minutes);
         let strSeconds = String(format: "%02d", seconds);
         let strFraction = "00";
+        
+        if (currentMin != (NSInteger(slider.value) - minutes))
+        {
+            currentMin = (NSInteger(slider.value) - minutes);
+            watchConnectivity.sendMessage(["min" : currentMin]);
+        }
 
         elapsedTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)";
 
