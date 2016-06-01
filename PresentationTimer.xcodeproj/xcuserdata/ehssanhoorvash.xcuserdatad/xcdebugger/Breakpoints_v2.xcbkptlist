@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PresentationTimer/WatchConnectivityHelper.swift"
-            timestampString = "485033883.207765"
+            filePath = "PresentationTimer/ViewController.swift"
+            timestampString = "486423518.329683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "sessionWatchStateDidChange(_:)"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "onTimerTick(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

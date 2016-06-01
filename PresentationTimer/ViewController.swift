@@ -8,6 +8,30 @@
 
 import UIKit
 
+enum UIUserInterfaceIdiom : Int
+{
+    case Unspecified
+    case Phone
+    case Pad
+}
+
+struct ScreenSize
+{
+    static let SCREEN_WIDTH         = UIScreen.mainScreen().bounds.size.width
+    static let SCREEN_HEIGHT        = UIScreen.mainScreen().bounds.size.height
+    static let SCREEN_MAX_LENGTH    = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+    static let SCREEN_MIN_LENGTH    = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+}
+
+struct DeviceType
+{
+    static let IS_IPHONE_4_OR_LESS  = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH < 568.0
+    static let IS_IPHONE_5          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
+    static let IS_IPHONE_6          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
+    static let IS_IPHONE_6P         = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
+    static let IS_IPAD              = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
+}
+
 
 @available(iOS 9.0, *)
 class ViewController: UIViewController
@@ -31,23 +55,20 @@ class ViewController: UIViewController
     
     let MINUTES_CONST_LABEL_TAG = 7788
     
-    var watchConnectivity : WatchConnectivityHelper!
     var currentMin : NSInteger!
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var minutesLabel: UILabel!
 
     @IBOutlet weak var elapsedTimeLabel: UILabel!
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad();
         
         self.setNeedsStatusBarAppearanceUpdate();
-  
-        //setup watch connectivity
-        watchConnectivity = WatchConnectivityHelper();
-        watchConnectivity.startWatchSession();
-        
+    
         
         // Setup the progress bar
         setupMainProgress();
@@ -67,23 +88,24 @@ class ViewController: UIViewController
         
         alarms = [Bool](count: 4, repeatedValue: true);
         setupAlarmIndicators();
-        
-        
     }
     
     
 
-    @IBAction func onPlusClick(sender: AnyObject) {
+    @IBAction func onPlusClick(sender: AnyObject)
+    {
         slider.value += 1;
         onSliderValueChanged(slider);
     }
 
-    @IBAction func onMinusClick(sender: AnyObject) {
+    @IBAction func onMinusClick(sender: AnyObject)
+    {
         slider.value -= 1;
         onSliderValueChanged(slider);
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override func preferredStatusBarStyle() -> UIStatusBarStyle
+    {
         return UIStatusBarStyle.LightContent;
     }
 
@@ -92,7 +114,12 @@ class ViewController: UIViewController
     {
         let screenWidth = Float(UIScreen.mainScreen().bounds.size.width);
         let numberOfIndicators = 4;
-        let origin_y = 100;
+        var origin_y = 100;
+        if DeviceType.IS_IPHONE_4_OR_LESS {
+             origin_y = 50
+        }
+        
+        
         let origin_x = (Float(screenWidth) / Float(numberOfIndicators)) / 2.0;
         for i in 1 ... numberOfIndicators
         {
@@ -177,7 +204,8 @@ class ViewController: UIViewController
     
 
 
-    private func setupSlider() {
+    private func setupSlider()
+    {
         slider.minimumValue = 1.0;
         slider.maximumValue = 120.0;
         slider.addTarget(self, action: #selector(ViewController.onSliderValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged);
@@ -222,9 +250,9 @@ class ViewController: UIViewController
         }
         
         print(alarms);
-        
     }
 
+    
     func onButtonClicked(sender: AnyObject!)
     {
         let theButton = sender as! UIButton;
@@ -236,7 +264,9 @@ class ViewController: UIViewController
             theButton.tag = STOP_TAG;
 
             //TODO: make it variable based on selected time.
-            delay = 5
+            delay = floor(Double(slider.value) / 6) + 1
+            ;
+            
             timer = NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: #selector(ViewController.onTimerTick(_:)), userInfo: nil, repeats: true);
 
             startTime = NSDate.timeIntervalSinceReferenceDate();
@@ -253,7 +283,6 @@ class ViewController: UIViewController
             (self.view.viewWithTag(MINUTES_CONST_LABEL_TAG) as! UILabel).textColor = UIColor.grayColor();
             
             currentMin = NSInteger(slider.value);
-            watchConnectivity.sendMessage(["min" : currentMin]);
 
             
         } else if (theButton.tag == STOP_TAG){
@@ -282,13 +311,14 @@ class ViewController: UIViewController
         }
     }
 
+    
     func onTimerTick(timer: NSTimer!)
     {
         let degreePerMin = Double(360 / NSInteger(slider.value));
         let increment = Double( Double(delay) * degreePerMin / 60) ;
 
-        print("Increment is  ", NSInteger(increment));
-        print("Degree Per min  ", degreePerMin);
+        //print("Increment is  ", NSInteger(increment));
+        //print("Degree Per min  ", degreePerMin);
 
         checkForNotifications(Double( Double(progress.angle) + increment) / Double(360.0));
 
@@ -324,7 +354,6 @@ class ViewController: UIViewController
         if (currentMin != (NSInteger(slider.value) - minutes))
         {
             currentMin = (NSInteger(slider.value) - minutes);
-            watchConnectivity.sendMessage(["min" : currentMin]);
         }
 
         elapsedTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)";
@@ -336,6 +365,7 @@ class ViewController: UIViewController
         }
     }
 
+    
     private func resetTimers()
     {
         print("Time's up");
@@ -350,28 +380,28 @@ class ViewController: UIViewController
     {
         if (alarms[0] && percent >= 0.95 )
         {
-            showLocalNotification("95% passed");
+            showLocalNotification("95%% of your time passed. Wrap it up!");
             alarms[0] = false;
             return;
         }
         
         if (alarms[1] && percent >= 0.90 )
         {
-            showLocalNotification("90% gone");
+            showLocalNotification("90%% of your time passed. Almost finished!");
             alarms[1] = false;
             return;
         }
         
         if (alarms[2] && percent >= 0.75 )
         {
-            showLocalNotification("75% gobe");
+            showLocalNotification("75%% of your time has passed.");
             alarms[2] = false;
             return;
         }
         
         if (alarms[3] && percent >= 0.50)
         {
-            showLocalNotification("Half time");
+            showLocalNotification("Half of your presentation time has passed.");
             alarms[3] = false;
             return;
         }
@@ -386,4 +416,4 @@ class ViewController: UIViewController
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
-}
+   }

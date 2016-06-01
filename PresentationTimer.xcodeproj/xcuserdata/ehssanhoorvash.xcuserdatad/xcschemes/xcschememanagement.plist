@@ -6,23 +6,10 @@
 	<dict>
 		<key>PresentationTimer.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-		<key>PresentationTimerWatch (Glance).xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>PresentationTimerWatch (Notification).xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>PresentationTimerWatch.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
