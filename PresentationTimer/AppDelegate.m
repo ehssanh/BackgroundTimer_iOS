@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface AppDelegate ()
 
@@ -21,6 +22,8 @@
     [application registerUserNotificationSettings:[UIUserNotificationSettings
                                                    settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|
                                                    UIUserNotificationTypeSound categories:nil]];
+    
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-1774127394132080~1458378654"];
     
     return YES;
 }

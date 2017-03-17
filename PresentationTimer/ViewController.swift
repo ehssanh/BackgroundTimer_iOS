@@ -7,41 +7,41 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 enum UIUserInterfaceIdiom : Int
 {
-    case Unspecified
-    case Phone
-    case Pad
+    case unspecified
+    case phone
+    case pad
 }
 
 struct ScreenSize
 {
-    static let SCREEN_WIDTH         = UIScreen.mainScreen().bounds.size.width
-    static let SCREEN_HEIGHT        = UIScreen.mainScreen().bounds.size.height
+    static let SCREEN_WIDTH         = UIScreen.main.bounds.size.width
+    static let SCREEN_HEIGHT        = UIScreen.main.bounds.size.height
     static let SCREEN_MAX_LENGTH    = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
     static let SCREEN_MIN_LENGTH    = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
 }
 
 struct DeviceType
 {
-    static let IS_IPHONE_4_OR_LESS  = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH < 568.0
-    static let IS_IPHONE_5          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
-    static let IS_IPHONE_6          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
-    static let IS_IPHONE_6P         = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
-    static let IS_IPAD              = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
+    static let IS_IPHONE_4_OR_LESS  = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH < 568.0
+    static let IS_IPHONE_5          = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
+    static let IS_IPHONE_6          = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
+    static let IS_IPHONE_6P         = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
+    static let IS_IPAD              = UIDevice.current.userInterfaceIdiom == .pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
 }
 
 
 @available(iOS 9.0, *)
-class ViewController: UIViewController
+class ViewController: UIViewController, UIAlertViewDelegate, GADBannerViewDelegate
 {
 
     var progress: KDCircularProgress!
-    var button: UIButton!
-    var timer: NSTimer!
+    var timer: Timer!
     var delay: Double!
-    var startTime: NSTimeInterval!
+    var startTime: TimeInterval!
     var alarms: Array<Bool>!
 
     let START_TAG = 1120
@@ -54,9 +54,13 @@ class ViewController: UIViewController
     let MINUS_BUTTON_TAG = 332
     
     let MINUTES_CONST_LABEL_TAG = 7788
+    let bannerView = GADBannerView(adSize:kGADAdSizeSmartBannerPortrait,origin: CGPoint(x: 0.0, y: 24.0))
+
     
     var currentMin : NSInteger!
     
+    
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var minutesLabel: UILabel!
 
@@ -72,7 +76,7 @@ class ViewController: UIViewController
         
         // Setup the progress bar
         setupMainProgress();
-        progress.animateFromAngle(progress.angle, toAngle: 360, duration: 0.6, completion: {
+        progress.animate(fromAngle: progress.angle, toAngle: 360, duration: 0.6, completion: {
             (completed) -> Void in
 
             if (completed) {
@@ -86,33 +90,36 @@ class ViewController: UIViewController
         // Slider setup
         setupSlider();
         
-        alarms = [Bool](count: 4, repeatedValue: true);
+        alarms = [Bool](repeating: true, count: 4);
         setupAlarmIndicators();
+        
+        createAndLoadInterstitial();
+        showBannerAd();
     }
     
     
 
-    @IBAction func onPlusClick(sender: AnyObject)
+    @IBAction func onPlusClick(_ sender: AnyObject)
     {
         slider.value += 1;
         onSliderValueChanged(slider);
     }
 
-    @IBAction func onMinusClick(sender: AnyObject)
+    @IBAction func onMinusClick(_ sender: AnyObject)
     {
         slider.value -= 1;
         onSliderValueChanged(slider);
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle
+    override var preferredStatusBarStyle : UIStatusBarStyle
     {
-        return UIStatusBarStyle.LightContent;
+        return UIStatusBarStyle.lightContent;
     }
 
 
-    private func setupAlarmIndicators()
+    fileprivate func setupAlarmIndicators()
     {
-        let screenWidth = Float(UIScreen.mainScreen().bounds.size.width);
+        let screenWidth = Float(UIScreen.main.bounds.size.width);
         let numberOfIndicators = 4;
         var origin_y = 100;
         if DeviceType.IS_IPHONE_4_OR_LESS {
@@ -129,86 +136,86 @@ class ViewController: UIViewController
             indicator.startAngle = -90;
             indicator.progressThickness = 0.3
             indicator.trackThickness = 0.6
-            indicator.setColors(UIColor.greenColor(), UIColor.greenColor(), UIColor.greenColor());
+            indicator.set(colors: UIColor.green, UIColor.green, UIColor.green);
             indicator.tag = ALARM_PROGRESS_COEFFICIENT + i;
             view.addSubview(indicator);
             
-            let alarmButton = UIButton(type: .System);
+            let alarmButton = UIButton(type: .system);
             alarmButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50);
             alarmButton.center = indicator.center;
             alarmButton.tag = 10000 + i ;
             alarmButton.showsTouchWhenHighlighted = true;
             alarmButton.tag = ALARM_BUTTON_COEFFICIENT + i;
-            alarmButton.setTitleColor(UIColor.whiteColor(), forState: .Normal);
-            alarmButton.titleLabel?.font = UIFont.boldSystemFontOfSize(12.0);
-            alarmButton.titleLabel?.textColor = UIColor.whiteColor();
-            alarmButton.setTitle("50", forState: .Normal);
-            alarmButton.setTitleColor(UIColor.whiteColor(), forState: .Normal);
-            alarmButton.addTarget(self, action: #selector(ViewController.onAlarmButtonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside);
+            alarmButton.setTitleColor(UIColor.white, for: UIControlState());
+            alarmButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12.0);
+            alarmButton.titleLabel?.textColor = UIColor.white;
+            alarmButton.setTitle("50", for: UIControlState());
+            alarmButton.setTitleColor(UIColor.white, for: UIControlState());
+            alarmButton.addTarget(self, action: #selector(ViewController.onAlarmButtonClicked(_:)), for: UIControlEvents.touchUpInside);
             view.addSubview(alarmButton);
         }
         
         
-        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 1) as! KDCircularProgress).angle = 360 * 50 / 100 ;
-        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 2) as! KDCircularProgress).angle = 360 * 75 / 100 ;
-        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 2) as! KDCircularProgress).setColors(UIColor.yellowColor(), UIColor.yellowColor(), UIColor.yellowColor())
-        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 3) as! KDCircularProgress).angle = 360 * 90 / 100 ;
-        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 3) as! KDCircularProgress).setColors(UIColor.orangeColor(), UIColor.orangeColor(), UIColor.orangeColor())
-        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 4) as! KDCircularProgress).angle = 360 * 98 / 100 ;
-        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 4) as! KDCircularProgress).setColors(UIColor.redColor(), UIColor.redColor(), UIColor.redColor())
+        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 1) as! KDCircularProgress).angle = Double(360 * 50 / 100) ;
+        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 2) as! KDCircularProgress).angle = Double(360 * 75 / 100) ;
+        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 2) as! KDCircularProgress).set(colors: UIColor.yellow, UIColor.yellow, UIColor.yellow)
+        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 3) as! KDCircularProgress).angle = Double(360 * 90 / 100) ;
+        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 3) as! KDCircularProgress).set(colors: UIColor.orange, UIColor.orange, UIColor.orange)
+        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 4) as! KDCircularProgress).angle = Double(360 * 98 / 100) ;
+        (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 4) as! KDCircularProgress).set(colors: UIColor.red, UIColor.red, UIColor.red)
     
-        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 1) as! UIButton).setTitle("50%", forState: .Normal);
-        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 2) as! UIButton).setTitle("75%", forState: .Normal);
-        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 3) as! UIButton).setTitle("90%", forState: .Normal);
-        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 4) as! UIButton).setTitle("95%", forState: .Normal);
+        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 1) as! UIButton).setTitle("50%", for: UIControlState());
+        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 2) as! UIButton).setTitle("75%", for: UIControlState());
+        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 3) as! UIButton).setTitle("90%", for: UIControlState());
+        (view.viewWithTag(ALARM_BUTTON_COEFFICIENT + 4) as! UIButton).setTitle("95%", for: UIControlState());
     }
 
 
     //MARK:
     //MARK: Privates
-    private func setupMainProgress()
+    fileprivate func setupMainProgress()
     {
         progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         progress.startAngle = -90
         progress.progressThickness = 0.2
         progress.trackThickness = 0.2
-        progress.trackColor = UIColor.grayColor();
+        progress.trackColor = UIColor.gray;
         progress.clockwise = true
         progress.center = view.center
         progress.gradientRotateSpeed = 2
         progress.roundedCorners = true
-        progress.glowMode = .Forward
-        progress.setColors(UIColor.greenColor(), UIColor.greenColor(), UIColor.greenColor())
+        progress.glowMode = .forward
+        progress.set(colors: UIColor.green, UIColor.green, UIColor.green)
         view.addSubview(progress)
     }
 
-    private func setupStartStopButton()
+    fileprivate func setupStartStopButton()
     {
-        button = UIButton(type: .System);
-        button.frame = CGRect(x: 0, y: 0, width: 120, height: 120);
-        button.center = view.center;
+        //button = UIButton(type: .System);
+        //button.frame = CGRect(x: 0, y: 0, width: 120, height: 120);
+        //button.center = view.center;
         button.tag = START_TAG;
 
         button.showsTouchWhenHighlighted = true;
-        button.setTitleColor(UIColor.blackColor(), forState: .Normal);
-        button.setTitleColor(UIColor.lightGrayColor(), forState: .Selected);
-        button.titleLabel?.font = UIFont.boldSystemFontOfSize(20.0);
-        button.titleLabel?.textColor = UIColor.whiteColor();
+        button.setTitleColor(UIColor.black, for: UIControlState());
+        button.setTitleColor(UIColor.lightGray, for: .selected);
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0);
+        button.titleLabel?.textColor = UIColor.white;
 
-        button.setTitle("Start", forState: .Normal);
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal);
+        button.setTitle("Start", for: UIControlState());
+        button.setTitleColor(UIColor.white, for: UIControlState());
 
-        button.addTarget(self, action: #selector(ViewController.onButtonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside);
+        button.addTarget(self, action: #selector(ViewController.onButtonClicked(_:)), for: UIControlEvents.touchUpInside);
         view.addSubview(button);
     }
     
 
 
-    private func setupSlider()
+    fileprivate func setupSlider()
     {
         slider.minimumValue = 1.0;
         slider.maximumValue = 120.0;
-        slider.addTarget(self, action: #selector(ViewController.onSliderValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged);
+        slider.addTarget(self, action: #selector(ViewController.onSliderValueChanged(_:)), for: UIControlEvents.valueChanged);
         slider.value = 20;
         minutesLabel.text = String(20);
     }
@@ -216,33 +223,33 @@ class ViewController: UIViewController
     //MARK:
     //MARK: Actions
 
-    func onSliderValueChanged(slider: UISlider!)
+    func onSliderValueChanged(_ slider: UISlider!)
     {
         minutesLabel.text = String((NSInteger)(slider.value));
     }
     
-    func onAlarmButtonClicked(sender: AnyObject!)
+    func onAlarmButtonClicked(_ sender: AnyObject!)
     {
         switch sender.tag
         {
         case (ALARM_BUTTON_COEFFICIENT + 1):
-            let c = alarms[0] ? UIColor.grayColor() : UIColor.greenColor() ;
-            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 1) as! KDCircularProgress).setColors(c,c,c)
+            let c = alarms[0] ? UIColor.gray : UIColor.green ;
+            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 1) as! KDCircularProgress).set(colors: c,c,c)
             alarms[0] = !alarms[0];
             break;
         case ALARM_BUTTON_COEFFICIENT + 2:
-            let c = alarms[1]  ? UIColor.grayColor() : UIColor.yellowColor() ;
-            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 2) as! KDCircularProgress).setColors(c,c,c)
+            let c = alarms[1]  ? UIColor.gray : UIColor.yellow ;
+            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 2) as! KDCircularProgress).set(colors:c,c,c)
             alarms[1] = !alarms[1];
             break;
         case ALARM_BUTTON_COEFFICIENT + 3:
-            let c = alarms[2]  ? UIColor.grayColor() : UIColor.orangeColor() ;
-            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 3) as! KDCircularProgress).setColors(c,c,c)
+            let c = alarms[2]  ? UIColor.gray : UIColor.orange ;
+            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 3) as! KDCircularProgress).set(colors:c,c,c)
             alarms[2] = !alarms[2];
             break;
         case ALARM_BUTTON_COEFFICIENT+4:
-            let c = alarms[3]  ? UIColor.grayColor() : UIColor.redColor() ;
-            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 4) as! KDCircularProgress).setColors(c,c,c)
+            let c = alarms[3]  ? UIColor.gray : UIColor.red ;
+            (view.viewWithTag(ALARM_PROGRESS_COEFFICIENT + 4) as! KDCircularProgress).set(colors:c,c,c)
             alarms[3] = !alarms[3];
             break;
         default:
@@ -253,34 +260,34 @@ class ViewController: UIViewController
     }
 
     
-    func onButtonClicked(sender: AnyObject!)
+    func onButtonClicked(_ sender: AnyObject!)
     {
         let theButton = sender as! UIButton;
     
         if (theButton.tag == START_TAG)
         {
             
-            theButton.setTitle("Stop", forState: .Normal);
+            theButton.setTitle("Stop", for: UIControlState());
             theButton.tag = STOP_TAG;
 
             //TODO: make it variable based on selected time.
             delay = floor(Double(slider.value) / 6) + 1
             ;
             
-            timer = NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: #selector(ViewController.onTimerTick(_:)), userInfo: nil, repeats: true);
+            timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(ViewController.onTimerTick(_:)), userInfo: nil, repeats: true);
 
-            startTime = NSDate.timeIntervalSinceReferenceDate();
-            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.updateElapsedTimeLabel), userInfo: nil, repeats: false);
+            startTime = Date.timeIntervalSinceReferenceDate;
+            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateElapsedTimeLabel), userInfo: nil, repeats: false);
 
             progress.angle = 0;
-            slider.enabled = false;
-            slider.userInteractionEnabled = false;
-            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).userInteractionEnabled = false;
-            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.grayColor(), forState: .Normal);
-            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).userInteractionEnabled = false;
-            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.grayColor(), forState: .Normal);
-            minutesLabel.textColor = UIColor.grayColor();
-            (self.view.viewWithTag(MINUTES_CONST_LABEL_TAG) as! UILabel).textColor = UIColor.grayColor();
+            slider.isEnabled = false;
+            slider.isUserInteractionEnabled = false;
+            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).isUserInteractionEnabled = false;
+            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.gray, for: UIControlState());
+            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).isUserInteractionEnabled = false;
+            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.gray, for: UIControlState());
+            minutesLabel.textColor = UIColor.gray;
+            (self.view.viewWithTag(MINUTES_CONST_LABEL_TAG) as! UILabel).textColor = UIColor.gray;
             
             currentMin = NSInteger(slider.value);
 
@@ -288,31 +295,31 @@ class ViewController: UIViewController
         } else if (theButton.tag == STOP_TAG){
             
             
-            theButton.setTitle("Start", forState: .Normal);
+            theButton.setTitle("Start", for: UIControlState());
             theButton.tag = START_TAG;
             resetTimers();
 
-            progress.animateFromAngle(progress.angle, toAngle: 360, duration: 0.6, completion: {
+            progress.animate(fromAngle: progress.angle, toAngle: 360, duration: 0.6, completion: {
                 (completed) -> Void in
 
                 if (completed) {
                     self.progress.angle = 0;
                 }
             });
-            slider.enabled = true;
-            slider.userInteractionEnabled = true;
+            slider.isEnabled = true;
+            slider.isUserInteractionEnabled = true;
             
-            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).userInteractionEnabled = true;
-            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.whiteColor(), forState: .Normal);
-            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).userInteractionEnabled = true;
-            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.whiteColor(), forState: .Normal);
-            (self.view.viewWithTag(MINUTES_CONST_LABEL_TAG) as! UILabel).textColor = UIColor.whiteColor();
-            minutesLabel.textColor = UIColor.whiteColor();
+            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).isUserInteractionEnabled = true;
+            (self.view.viewWithTag(PLUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.white, for: UIControlState());
+            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).isUserInteractionEnabled = true;
+            (self.view.viewWithTag(MINUS_BUTTON_TAG) as! UIButton).setTitleColor(UIColor.white, for: UIControlState());
+            (self.view.viewWithTag(MINUTES_CONST_LABEL_TAG) as! UILabel).textColor = UIColor.white;
+            minutesLabel.textColor = UIColor.white;
         }
     }
 
     
-    func onTimerTick(timer: NSTimer!)
+    func onTimerTick(_ timer: Timer!)
     {
         let degreePerMin = Double(360 / NSInteger(slider.value));
         let increment = Double( Double(delay) * degreePerMin / 60) ;
@@ -322,7 +329,7 @@ class ViewController: UIViewController
 
         checkForNotifications(Double( Double(progress.angle) + increment) / Double(360.0));
 
-        progress.angle! += NSInteger(increment);
+        progress.angle += Double(increment);
 
         if (progress.angle >= 0 && progress.angle <= 360) {
             //TODO: adjust colors
@@ -336,15 +343,15 @@ class ViewController: UIViewController
 
     func updateElapsedTimeLabel()
     {
-        let currentTime = NSDate.timeIntervalSinceReferenceDate();
-        var elapsedTime: NSTimeInterval = currentTime - startTime;
+        let currentTime = Date.timeIntervalSinceReferenceDate;
+        var elapsedTime: TimeInterval = currentTime - startTime;
 
         let minutes = NSInteger(elapsedTime / 60.0);
 
-        elapsedTime -= (NSTimeInterval(minutes) * 60);
+        elapsedTime -= (TimeInterval(minutes) * 60);
         let seconds = NSInteger(elapsedTime);
 
-        elapsedTime -= NSTimeInterval(seconds);
+        elapsedTime -= TimeInterval(seconds);
         //let fraction = NSInteger(elapsedTime * 100);
 
         let strMinutes = String(format: "%02d", minutes);
@@ -359,14 +366,14 @@ class ViewController: UIViewController
         elapsedTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)";
 
         if (timer != nil && minutes < NSInteger(slider.value)) {
-            NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.updateElapsedTimeLabel), userInfo: nil, repeats: false);
+            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateElapsedTimeLabel), userInfo: nil, repeats: false);
         } else {
             elapsedTimeLabel.text = "00:00:00";
         }
     }
 
     
-    private func resetTimers()
+    fileprivate func resetTimers()
     {
         print("Time's up");
         progress.angle = 0;
@@ -376,7 +383,7 @@ class ViewController: UIViewController
         elapsedTimeLabel.text = "00:00:00";
     }
     
-    private func checkForNotifications(percent: Double)
+    fileprivate func checkForNotifications(_ percent: Double)
     {
         if (alarms[0] && percent >= 0.95 )
         {
@@ -408,12 +415,56 @@ class ViewController: UIViewController
     
     }
     
-    private func showLocalNotification(message: String)
+    fileprivate func showLocalNotification(_ message: String)
     {
         let localNotification = UILocalNotification();
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 0);
+        localNotification.fireDate = Date(timeIntervalSinceNow: 0);
         localNotification.alertBody = message;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.shared.scheduleLocalNotification(localNotification)
     }
+    
+    fileprivate func createAndLoadInterstitial()
+    {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-1774127394132080/1318777855")
+        let request = GADRequest()
+        // Request test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made.
+        request.testDevices = [kGADSimulatorID, "ae354aece0dc368841bc13b68740a65c" ]
+        interstitial.load(request)
+        
+        presentInterstitial(interstitial);
+        
+    }
+    
+    fileprivate func presentInterstitial(_ ad: GADInterstitial)
+    {
+        let delay = 2.0 * Double(NSEC_PER_SEC)
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            ad.present(fromRootViewController: self)
+        }
+    }
+    
+    fileprivate func showBannerAd()
+    {
+        bannerView.delegate = self;
+        bannerView.rootViewController = self
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID, "ae354aece0dc368841bc13b68740a65c" ]
+        bannerView.adUnitID = "ca-app-pub-1774127394132080/2935111857"
+        bannerView.load(request)
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView!)
+    {
+        self.view.addSubview(bannerView);
+    }
+    
+    func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!)
+    {
+        print();
+    }
+
+    
    }

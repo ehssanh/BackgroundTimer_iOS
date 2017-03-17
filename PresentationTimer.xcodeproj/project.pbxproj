@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26CC291A7C440BE417CC4C47 /* Pods_PresentationTimerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2674B2FF3D85026B58CEE9 /* Pods_PresentationTimerTests.framework */; };
 		596C5DBB1CE2734C006CABA8 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596C5DBA1CE2734C006CABA8 /* clock@2x.png */; };
 		59F6165C1C313C2C001D29A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6165B1C313C2C001D29A3 /* main.m */; };
 		59F6165F1C313C2C001D29A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6165E1C313C2C001D29A3 /* AppDelegate.m */; };
@@ -16,7 +17,9 @@
 		59F616751C313C2C001D29A3 /* PresentationTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F616741C313C2C001D29A3 /* PresentationTimerTests.m */; };
 		59F616801C313C2C001D29A3 /* PresentationTimerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F6167F1C313C2C001D29A3 /* PresentationTimerUITests.m */; };
 		59F616931C313F95001D29A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F616921C313F95001D29A3 /* ViewController.swift */; };
-		59F616971C313FD2001D29A3 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F616961C313FD2001D29A3 /* KDCircularProgress.swift */; };
+		A5CCD84ED1F36F349AAF0F42 /* Pods_PresentationTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04405ED700096F14C939B9D6 /* Pods_PresentationTimer.framework */; };
+		B2639F04FA6B3C915E790A73 /* Pods_PresentationTimerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90350BC10B6F69FA20200E8 /* Pods_PresentationTimerUITests.framework */; };
+		BF6B8F6A1E7BA21B00247E5F /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B8F691E7BA21B00247E5F /* KDCircularProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +53,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04405ED700096F14C939B9D6 /* Pods_PresentationTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04C86346584E3DB240D40BC8 /* Pods-PresentationTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresentationTimer/Pods-PresentationTimer.debug.xcconfig"; sourceTree = "<group>"; };
+		54DEFBE44588FE8A4F3DDCC5 /* Pods-PresentationTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresentationTimer/Pods-PresentationTimer.release.xcconfig"; sourceTree = "<group>"; };
 		596C5DBA1CE2734C006CABA8 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
-		59C300CC1CE4C93F00C0C57C /* PresentationTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PresentationTimer.entitlements; sourceTree = "<group>"; };
 		59F616571C313C2C001D29A3 /* PresentationTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresentationTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F6165B1C313C2C001D29A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		59F6165D1C313C2C001D29A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,8 +73,15 @@
 		59F616811C313C2C001D29A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59F6168F1C313F4E001D29A3 /* PresentationTimer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PresentationTimer-Bridging-Header.h"; sourceTree = "<group>"; };
 		59F616921C313F95001D29A3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		59F616961C313FD2001D29A3 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		59F6169A1C31626C001D29A3 /* PresentationTimer+PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PresentationTimer+PrefixHeader.pch"; sourceTree = "<group>"; };
+		614B985EA2F9D859084935CC /* Pods-PresentationTimerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationTimerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresentationTimerUITests/Pods-PresentationTimerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		820CEA0A4210CEE8C21FB6E4 /* Pods-PresentationTimerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationTimerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PresentationTimerTests/Pods-PresentationTimerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A90350BC10B6F69FA20200E8 /* Pods_PresentationTimerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationTimerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3EDB58D2E4010B399E03E41 /* Pods-PresentationTimerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationTimerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresentationTimerUITests/Pods-PresentationTimerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF6B8F691E7BA21B00247E5F /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		BF6B8F6B1E7BA25000247E5F /* KDCircularProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDCircularProgress.h; sourceTree = "<group>"; };
+		E878D59B81E57BD1B5AC82DF /* Pods-PresentationTimerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationTimerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PresentationTimerTests/Pods-PresentationTimerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE2674B2FF3D85026B58CEE9 /* Pods_PresentationTimerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationTimerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CCD84ED1F36F349AAF0F42 /* Pods_PresentationTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CC291A7C440BE417CC4C47 /* Pods_PresentationTimerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,12 +105,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2639F04FA6B3C915E790A73 /* Pods_PresentationTimerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		481746BAF11490EB0DB53F81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04C86346584E3DB240D40BC8 /* Pods-PresentationTimer.debug.xcconfig */,
+				54DEFBE44588FE8A4F3DDCC5 /* Pods-PresentationTimer.release.xcconfig */,
+				E878D59B81E57BD1B5AC82DF /* Pods-PresentationTimerTests.debug.xcconfig */,
+				820CEA0A4210CEE8C21FB6E4 /* Pods-PresentationTimerTests.release.xcconfig */,
+				B3EDB58D2E4010B399E03E41 /* Pods-PresentationTimerUITests.debug.xcconfig */,
+				614B985EA2F9D859084935CC /* Pods-PresentationTimerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		59F6164E1C313C2C001D29A3 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +132,8 @@
 				59F616731C313C2C001D29A3 /* PresentationTimerTests */,
 				59F6167E1C313C2C001D29A3 /* PresentationTimerUITests */,
 				59F616581C313C2C001D29A3 /* Products */,
+				481746BAF11490EB0DB53F81 /* Pods */,
+				65A1D7DB0DFBD5ACB09A4B42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,8 +150,6 @@
 		59F616591C313C2C001D29A3 /* PresentationTimer */ = {
 			isa = PBXGroup;
 			children = (
-				59C300CC1CE4C93F00C0C57C /* PresentationTimer.entitlements */,
-				59F616991C3149B3001D29A3 /* Monetization */,
 				59F616981C3149A5001D29A3 /* Progress */,
 				59F6165D1C313C2C001D29A3 /* AppDelegate.h */,
 				59F6165E1C313C2C001D29A3 /* AppDelegate.m */,
@@ -167,16 +195,20 @@
 		59F616981C3149A5001D29A3 /* Progress */ = {
 			isa = PBXGroup;
 			children = (
-				59F616961C313FD2001D29A3 /* KDCircularProgress.swift */,
+				BF6B8F691E7BA21B00247E5F /* KDCircularProgress.swift */,
+				BF6B8F6B1E7BA25000247E5F /* KDCircularProgress.h */,
 			);
 			name = Progress;
 			sourceTree = "<group>";
 		};
-		59F616991C3149B3001D29A3 /* Monetization */ = {
+		65A1D7DB0DFBD5ACB09A4B42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04405ED700096F14C939B9D6 /* Pods_PresentationTimer.framework */,
+				FE2674B2FF3D85026B58CEE9 /* Pods_PresentationTimerTests.framework */,
+				A90350BC10B6F69FA20200E8 /* Pods_PresentationTimerUITests.framework */,
 			);
-			name = Monetization;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,10 +218,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59F616841C313C2C001D29A3 /* Build configuration list for PBXNativeTarget "PresentationTimer" */;
 			buildPhases = (
+				45AFBC346B18409602134118 /* [CP] Check Pods Manifest.lock */,
 				59F616531C313C2C001D29A3 /* Sources */,
 				59F616541C313C2C001D29A3 /* Frameworks */,
 				59F616551C313C2C001D29A3 /* Resources */,
 				596C5DB91CE26328006CABA8 /* Embed Watch Content */,
+				3C78F742B3F79E76267AEA53 /* [CP] Embed Pods Frameworks */,
+				6D452674D2BAE7CDCBE3A818 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,9 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59F616871C313C2C001D29A3 /* Build configuration list for PBXNativeTarget "PresentationTimerTests" */;
 			buildPhases = (
+				9579E0E2D2F6FF805668FDED /* [CP] Check Pods Manifest.lock */,
 				59F6166C1C313C2C001D29A3 /* Sources */,
 				59F6166D1C313C2C001D29A3 /* Frameworks */,
 				59F6166E1C313C2C001D29A3 /* Resources */,
+				36D2BDDF70D0712ACB1137B7 /* [CP] Embed Pods Frameworks */,
+				4A360B274A9ECA8CCA27A391 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,9 +260,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59F6168A1C313C2C001D29A3 /* Build configuration list for PBXNativeTarget "PresentationTimerUITests" */;
 			buildPhases = (
+				EB6894351F2004087A68AF09 /* [CP] Check Pods Manifest.lock */,
 				59F616771C313C2C001D29A3 /* Sources */,
 				59F616781C313C2C001D29A3 /* Frameworks */,
 				59F616791C313C2C001D29A3 /* Resources */,
+				3410CCAC8DA7E9F6274D22B5 /* [CP] Embed Pods Frameworks */,
+				046769C4E05FBE16DEA3A4CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,12 +285,13 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "E. Hoorvash";
 				TargetAttributes = {
 					59F616561C313C2C001D29A3 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 7WS9686VPW;
+						DevelopmentTeam = 55XL3SK93H;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -314,12 +356,150 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		046769C4E05FBE16DEA3A4CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PresentationTimerUITests/Pods-PresentationTimerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3410CCAC8DA7E9F6274D22B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PresentationTimerUITests/Pods-PresentationTimerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36D2BDDF70D0712ACB1137B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PresentationTimerTests/Pods-PresentationTimerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C78F742B3F79E76267AEA53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PresentationTimer/Pods-PresentationTimer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45AFBC346B18409602134118 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4A360B274A9ECA8CCA27A391 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PresentationTimerTests/Pods-PresentationTimerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D452674D2BAE7CDCBE3A818 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PresentationTimer/Pods-PresentationTimer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9579E0E2D2F6FF805668FDED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB6894351F2004087A68AF09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		59F616531C313C2C001D29A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59F616971C313FD2001D29A3 /* KDCircularProgress.swift in Sources */,
+				BF6B8F6A1E7BA21B00247E5F /* KDCircularProgress.swift in Sources */,
 				59F616931C313F95001D29A3 /* ViewController.swift in Sources */,
 				59F6165F1C313C2C001D29A3 /* AppDelegate.m in Sources */,
 				59F6165C1C313C2C001D29A3 /* main.m in Sources */,
@@ -390,8 +570,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -433,8 +615,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -453,47 +637,54 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		59F616851C313C2C001D29A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04C86346584E3DB240D40BC8 /* Pods-PresentationTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = PresentationTimer/PresentationTimer.entitlements;
+				DEVELOPMENT_TEAM = 55XL3SK93H;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PresentationTimer+PrefixHeader.pch";
 				INFOPLIST_FILE = PresentationTimer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solidxpert.PresentationTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PresentationTimer/PresentationTimer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		59F616861C313C2C001D29A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54DEFBE44588FE8A4F3DDCC5 /* Pods-PresentationTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = PresentationTimer/PresentationTimer.entitlements;
+				DEVELOPMENT_TEAM = 55XL3SK93H;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PresentationTimer+PrefixHeader.pch";
 				INFOPLIST_FILE = PresentationTimer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ozkobet.PresentationTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solidxpert.PresentationTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PresentationTimer/PresentationTimer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		59F616881C313C2C001D29A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E878D59B81E57BD1B5AC82DF /* Pods-PresentationTimerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PresentationTimerTests/Info.plist;
@@ -506,6 +697,7 @@
 		};
 		59F616891C313C2C001D29A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 820CEA0A4210CEE8C21FB6E4 /* Pods-PresentationTimerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PresentationTimerTests/Info.plist;
@@ -518,6 +710,7 @@
 		};
 		59F6168B1C313C2C001D29A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3EDB58D2E4010B399E03E41 /* Pods-PresentationTimerUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PresentationTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -530,6 +723,7 @@
 		};
 		59F6168C1C313C2C001D29A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 614B985EA2F9D859084935CC /* Pods-PresentationTimerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PresentationTimerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
