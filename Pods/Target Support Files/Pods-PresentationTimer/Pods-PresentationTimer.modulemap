@@ -1,0 +1,6 @@
+framework module Pods_PresentationTimer {
+  umbrella header "Pods-PresentationTimer-umbrella.h"
+
+  export *
+  module * { export * }
+}

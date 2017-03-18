@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PresentationTimer/ViewController.swift"
-            timestampString = "486423518.329683"
+            timestampString = "499231932.235619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
-            landmarkName = "onTimerTick(_:)"
-            landmarkType = "5">
+            startingLineNumber = "325"
+            endingLineNumber = "325"
+            landmarkName = "onTimerTick(timer:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
