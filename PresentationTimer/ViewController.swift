@@ -122,8 +122,8 @@ class ViewController: UIViewController, UIAlertViewDelegate, GADBannerViewDelega
         let screenWidth = Float(UIScreen.main.bounds.size.width);
         let numberOfIndicators = 4;
         var origin_y = 100;
-        if DeviceType.IS_IPHONE_4_OR_LESS {
-             origin_y = 50
+        if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPAD {
+             origin_y = 100
         }
         
         
@@ -175,7 +175,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, GADBannerViewDelega
     //MARK: Privates
     fileprivate func setupMainProgress()
     {
-        progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 280, height: 280))
         progress.startAngle = -90
         progress.progressThickness = 0.2
         progress.trackThickness = 0.2
@@ -430,7 +430,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, GADBannerViewDelega
         let request = GADRequest()
         // Request test ads on devices you specify. Your test device ID is printed to the console when
         // an ad request is made.
-        request.testDevices = [kGADSimulatorID, "ae354aece0dc368841bc13b68740a65c" ]
+        request.testDevices = [kGADSimulatorID, "5927d0ad369776b75b817969d61bbc3f" ]
         interstitial.load(request)
         
         presentInterstitial(interstitial);
@@ -451,17 +451,17 @@ class ViewController: UIViewController, UIAlertViewDelegate, GADBannerViewDelega
         bannerView.delegate = self;
         bannerView.rootViewController = self
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID, "ae354aece0dc368841bc13b68740a65c" ]
+        request.testDevices = [kGADSimulatorID]
         bannerView.adUnitID = "ca-app-pub-1774127394132080/2935111857"
         bannerView.load(request)
     }
     
-    func adViewDidReceiveAd(_ bannerView: GADBannerView!)
+    func adViewDidReceiveAd(_ bannerView: GADBannerView)
     {
         self.view.addSubview(bannerView);
     }
     
-    func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!)
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError)
     {
         print();
     }
